@@ -1,0 +1,29 @@
+	; Sum two arrays A and B into array C.
+	A = 100
+	B = 200
+	C = 300
+	N = 0
+	adrA = 1
+	adrB = 2
+	adrC = 3
+	I = 4
+
+	org 8
+
+	in N
+	mov adrA, #A
+	mov adrB, #B
+	mov adrC, #C
+	in (adrA), N
+	in (adrB), N
+	mov I, N
+DALJE:
+	add (adrC), (adrA), (adrB)
+	add adrA, adrA, 1
+	add adrB, adrB, 1
+	add adrC, adrC, 1
+	sub I, I, 1
+	bgt I, 0, DALJE
+	mov adrC, #C
+	out (adrC), N
+	stop

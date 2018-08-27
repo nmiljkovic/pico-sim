@@ -1,0 +1,20 @@
+	; Calculates array average.
+	n = 1
+	tek = 2
+	s = 3
+	i = 4
+
+	org 8
+
+	in n
+	mov tek, 100
+	in (tek), n
+	mov s, 0
+	mov i, 0
+petlja:
+	add s, s, (tek)
+	add tek, tek, 1
+	add i, i, 1
+	bgt n, i, petlja
+	div s, s, n
+	stop s

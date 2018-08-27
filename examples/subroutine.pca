@@ -1,0 +1,24 @@
+	x = 1
+	y = 2
+	n = 3
+	k = 4
+	m = 5
+
+	org 8
+
+	mov k, 0
+	mov m, #n
+l1:
+	in n
+	jsr sbr
+	add k, k, 1
+	bgt m, k, l1
+	stop
+sbr:
+	mov x, 0
+l2:
+	add x, x, 1
+	mul y, x, x
+	bgt n, y, l2
+	out x
+	rts

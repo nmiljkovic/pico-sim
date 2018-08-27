@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "name": "pico-sim",
+  "productName": "pico-sim",
+  "description": "A",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "poi",
+    "build": "poi build",
+    "report": "poi build --bundle-report",
+    "serve": "serve dist --single",
+    "test": "tyu"
+  },
+  "author": "Nemanja Miljković <proof1337@gmail.com>",
+  "dependencies": {
+    "brace": "^0.11.1",
+    "buefy": "^0.6.6",
+    "codemirror": "^5.39.2",
+    "object-assign": "^4.1.1",
+    "pico-asm": "file:../pico-asm",
+    "promise-polyfill": "^6.0.2",
+    "split.js": "^1.3.5",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "poi": "^9.0.0",
+    "poi-preset-bundle-report": "^2.0.0",
+    "serve": "^6.1.0",
+    "tyu": "^1.0.4"
+  }
+}
