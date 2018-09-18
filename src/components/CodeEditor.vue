@@ -16,7 +16,7 @@
       this.editor = CodeMirror(
         document.getElementById("editor"), {
           lineNumbers: true,
-          indentWithTabs: true,
+          indentWithTabs: false,
           mode: "pico",
           theme: "idea",
           gutters: [
@@ -114,6 +114,9 @@
       },
       createMarker(err) {
         const lineInfo = this.editor.lineInfo(err.line - 1);
+        if (!lineInfo) {
+          return;
+        }
         const lineLength = lineInfo.text.length;
         const isEol = err.startColumn >= lineLength;
         // A special offset is applied for end of line errors
@@ -144,9 +147,16 @@
 
 <style>
   #editor {
-    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
+    max-width: calc(100% - 200px);
+  }
+
+  @media(max-width: 768px) {
+    #editor {
+      max-width: 100%;
+      padding-right: 10px;
+    }
   }
 
   .CodeMirror {

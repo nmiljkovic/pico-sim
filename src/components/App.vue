@@ -47,6 +47,7 @@
 
     display: flex;
     overflow: hidden;
+    min-height: 200px;
   }
 
   .code-editor-pane {
@@ -55,7 +56,6 @@
 
   .hardware-pane {
     border-left: 1px solid #ddd;
-    flex: 0 0 30%;
   }
 
   .footer-section {
@@ -65,6 +65,6 @@
 
   .footer-tabs .tab-content {
     overflow-y: scroll;
-    height: 250px;
+    max-height: 200px;
   }
 </style>

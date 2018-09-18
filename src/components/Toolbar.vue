@@ -1,7 +1,7 @@
 <template>
-  <div class="level">
+  <div class="level is-mobile">
     <ul class="level-left">
-      <li class="level-item logo">
+      <li class="level-item logo is-hidden-mobile">
         pico
       </li>
       <li class="level-item" v-show="!running">
@@ -72,7 +72,7 @@
 
     <div class="level-right">
       <button
-        class="button level-item"
+        class="button"
         v-on:click="format()"
         v-bind:disabled="running"
       >

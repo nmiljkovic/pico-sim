@@ -17,17 +17,9 @@
     </template>
 
     <template slot="empty">
-      <section class="section">
-        <div class="content has-text-grey has-text-centered">
-          <p>
-            <b-icon
-              icon="emoticon-happy"
-              size="is-large">
-            </b-icon>
-          </p>
-          <p>No errors.</p>
-        </div>
-      </section>
+      <div class="content has-text-grey has-text-centered">
+        <p>No errors.</p>
+      </div>
     </template>
   </b-table>
 </template>

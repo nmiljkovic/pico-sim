@@ -1,5 +1,5 @@
 <template>
-  <div class="hardware-panel">
+  <div class="hardware-panel is-hidden-mobile">
     <b-table
       :data="symbols()"
       :striped="true"
@@ -60,5 +60,6 @@
 <style scoped>
   .hardware-panel {
     overflow-y: scroll;
+    width: 200px;
   }
 </style>

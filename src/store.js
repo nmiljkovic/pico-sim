@@ -29,6 +29,10 @@ const store = new Vuex.Store({
     updateCode(state, {code, breakpoints}) {
       state.code = code;
       state.breakpoints = breakpoints;
+
+      if (window.localStorage) {
+        window.localStorage.setItem("code", code);
+      }
     },
     updateRunState(state, runState) {
       if (runState.running && !state.running) {
@@ -60,6 +64,9 @@ const store = new Vuex.Store({
     recordOutput(state, {address, value}) {
       state.consoleActivity.push(`Memory at address ${address}: ${value}`);
     },
+    submitConsoleMessage(state, message) {
+      state.consoleActivity.push(message);
+    }
   },
 
   getters: {
@@ -93,6 +100,8 @@ const store = new Vuex.Store({
             SP: asm.vm.stackPointer,
           },
         });
+      }, err => {
+        handleError(commit, err);
       });
     },
     continue({commit, state}) {
@@ -113,6 +122,8 @@ const store = new Vuex.Store({
             SP: asm.vm.stackPointer,
           },
         });
+      }, err => {
+        handleError(commit, err);
       });
     },
     run({dispatch, commit, state}, options) {
@@ -154,6 +165,20 @@ const store = new Vuex.Store({
     },
   },
 });
+
+function handleError(commit, err) {
+  commit("updateRunState", {
+    running: false,
+    debugging: false,
+    currentLineNumber: asm.vm.sourceLine,
+    runtime: {
+      PC: asm.vm.pc,
+      SP: asm.vm.stackPointer,
+    },
+  });
+  commit("submitConsoleMessage", err.message);
+  commit("focusFooterTab", 1);
+}
 
 function syncBreakpoints(breakpoints, muteBreakpoints) {
   asm.vm.clearBreakpoints();
