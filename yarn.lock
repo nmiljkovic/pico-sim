@@ -5145,8 +5145,9 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
 
-"pico-asm@file:../pico-asm":
-  version "1.0.0-beta6"
+pico-asm@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/pico-asm/-/pico-asm-1.0.0.tgz#6bb41cb8fcb7f85cbe74ebc6752fa76f37775761"
   dependencies:
     antlr4 "^4.7.1"
 
