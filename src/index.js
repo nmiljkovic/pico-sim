@@ -1,3 +1,6 @@
+// require polyfills for older browsers
+import "core-js";
+
 import Vue from "vue";
 import App from "./components/App.vue";
 import Buefy from "buefy";
