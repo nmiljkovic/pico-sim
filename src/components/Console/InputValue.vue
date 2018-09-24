@@ -2,7 +2,7 @@
   <div v-if="requestedInputAddr !== null">
     Input for address {{requestedInputAddr}}:
     <b-input
-      type="text"
+      type="number"
       ref="inputTxt"
       v-model="value"
       v-on:keyup.native="handleInputKeyup"
@@ -36,6 +36,9 @@
           return;
         }
         const value = parseInt(this.value, 10);
+        if (isNaN(value)) {
+          return;
+        }
         this.recordUserInput(value);
       },
     },
